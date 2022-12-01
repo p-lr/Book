@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.*
 
 private fun zipFlow() = callbackFlow {
     val progressionListener = Task.ProgressionListener { p ->
-        if (offer(p)) println("Emitted $p")
+        if (this.trySend(p).isSuccess) println("Emitted $p")
     }
 
     val zipTask = Task(progressionListener)

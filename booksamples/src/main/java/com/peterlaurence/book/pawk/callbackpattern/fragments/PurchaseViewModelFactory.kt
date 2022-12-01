@@ -12,7 +12,7 @@ class PurchaseViewModelFactory : ViewModelProvider.Factory {
     private val billingClient: BillingClient = BillingClientImpl(provider)
     private val user = "user" // Get in from registration service
 
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(PurchasesViewModel::class.java)) {
             return PurchasesViewModel(billingClient, user) as T
         }
