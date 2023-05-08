@@ -40,9 +40,9 @@ class Downloader(private val eventBus: EventBus, val scope: CoroutineScope) {
 fun main() = runBlocking {
     val eventBus = EventBus()
 
-    delay(100)
     println("start download")
     Downloader(eventBus, this)
+    delay(100)
     eventBus.startDownload("http://somewebsite_link")
     Unit
 }
